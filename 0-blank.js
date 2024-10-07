@@ -1,18 +1,26 @@
-// ইউজারের কাছ থেকে সংখ্যা নেওয়ার জন্য prompt ব্যবহার করা হয়েছে
-let number = parseInt(prompt("একটি সংখ্যা দিন:"));
+// ইউজারের কাছ থেকে স্ট্রিং ইনপুট নেওয়ার জন্য prompt ব্যবহার করা হয়েছে
+let userInput = prompt("একটি স্ট্রিং দিন:");
 
-// ফ্যাক্টোরিয়াল বের করার জন্য ফাংশন
-function calculateFactorial(num) {
-    if (num < 0) {
-        return "ফ্যাক্টোরিয়াল শুধু পজিটিভ সংখ্যার জন্য হয়";  // নেগেটিভ সংখ্যার ফ্যাক্টোরিয়াল হয় না
+// পালিনড্রোম চেক করার জন্য ফাংশন
+function isPalindrome(str) {
+    // স্ট্রিং এর অক্ষরগুলো ছোট হাতের (lowercase) করতে হবে, যাতে বড় হাতের (uppercase) অক্ষরের সাথে তুলনা করা যায়
+    let normalizedStr = str.toLowerCase();
+    
+    // ম্যানুয়ালি স্ট্রিং উল্টানো এবং তুলনা করা
+    let reversedStr = "";
+    
+    // স্ট্রিংয়ের প্রতিটি অক্ষর উল্টানো
+    for (let i = normalizedStr.length - 1; i >= 0; i--) {
+        reversedStr += normalizedStr[i];
     }
-    let factorial = 1;
-    for (let i = num; i > 0; i--) {
-        factorial *= i;  // প্রতিটি সংখ্যাকে গুণ করা হচ্ছে
-    }
-    return factorial;
+    
+    // উল্টানো স্ট্রিংটি মূল স্ট্রিংয়ের সাথে তুলনা করা
+    return normalizedStr === reversedStr;
 }
 
-// ফ্যাক্টোরিয়াল প্রিন্ট করা
-let result = calculateFactorial(number);
-console.log("ফ্যাক্টোরিয়াল: " + result);
+// ফলাফল প্রিন্ট করা
+if (isPalindrome(userInput)) {
+    console.log("স্ট্রিংটি পালিনড্রোম।");
+} else {
+    console.log("স্ট্রিংটি পালিনড্রোম নয়।");
+}
