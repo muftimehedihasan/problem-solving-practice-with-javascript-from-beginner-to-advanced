@@ -1,18 +1,12 @@
-// একটি অ্যারে তৈরি করা হয়েছে
-let numbers = [5, 10, 15, 20, 25];
-
-// সব সংখ্যার যোগফল বের করার ফাংশন
-function sumOfArray(arr) {
-    let sum = 0;  // যোগফল সংরক্ষণ করার জন্য ভেরিয়েবল
-
-    // অ্যারের প্রতিটি সংখ্যার উপর লুপ চালানো
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];  // প্রতিটি সংখ্যাকে যোগ করা হচ্ছে
-    }
-
-    return sum;  // যোগফল ফেরত দেয়া হচ্ছে
+function removeDuplicatesUsingSet(arr) {
+    // Set ব্যবহার করে অ্যারেকে ইউনিক মানগুলোতে রূপান্তর করা
+    let uniqueArray = [...new Set(arr)];
+    return uniqueArray;
 }
 
-// ফাংশনটি ব্যবহার করে যোগফল বের করা
-let totalSum = sumOfArray(numbers);
-console.log("অ্যারের সব সংখ্যার যোগফল: " + totalSum);
+// উদাহরণ অ্যারে
+let numbers = [1, 2, 2, 3, 4, 4, 5, 5, 5];
+
+// ডুপ্লিকেট সরানো
+let result = removeDuplicatesUsingSet(numbers);
+console.log("ডুপ্লিকেট ছাড়া অ্যারে:", result);
