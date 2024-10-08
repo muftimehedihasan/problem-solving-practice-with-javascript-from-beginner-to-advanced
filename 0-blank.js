@@ -1,26 +1,18 @@
-// ইউজারের কাছ থেকে স্ট্রিং ইনপুট নেওয়ার জন্য prompt ব্যবহার করা হয়েছে
-let userInput = prompt("একটি স্ট্রিং দিন:");
+// একটি অ্যারে তৈরি করা হয়েছে
+let numbers = [5, 10, 15, 20, 25];
 
-// পালিনড্রোম চেক করার জন্য ফাংশন
-function isPalindrome(str) {
-    // স্ট্রিং এর অক্ষরগুলো ছোট হাতের (lowercase) করতে হবে, যাতে বড় হাতের (uppercase) অক্ষরের সাথে তুলনা করা যায়
-    let normalizedStr = str.toLowerCase();
-    
-    // ম্যানুয়ালি স্ট্রিং উল্টানো এবং তুলনা করা
-    let reversedStr = "";
-    
-    // স্ট্রিংয়ের প্রতিটি অক্ষর উল্টানো
-    for (let i = normalizedStr.length - 1; i >= 0; i--) {
-        reversedStr += normalizedStr[i];
+// সব সংখ্যার যোগফল বের করার ফাংশন
+function sumOfArray(arr) {
+    let sum = 0;  // যোগফল সংরক্ষণ করার জন্য ভেরিয়েবল
+
+    // অ্যারের প্রতিটি সংখ্যার উপর লুপ চালানো
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];  // প্রতিটি সংখ্যাকে যোগ করা হচ্ছে
     }
-    
-    // উল্টানো স্ট্রিংটি মূল স্ট্রিংয়ের সাথে তুলনা করা
-    return normalizedStr === reversedStr;
+
+    return sum;  // যোগফল ফেরত দেয়া হচ্ছে
 }
 
-// ফলাফল প্রিন্ট করা
-if (isPalindrome(userInput)) {
-    console.log("স্ট্রিংটি পালিনড্রোম।");
-} else {
-    console.log("স্ট্রিংটি পালিনড্রোম নয়।");
-}
+// ফাংশনটি ব্যবহার করে যোগফল বের করা
+let totalSum = sumOfArray(numbers);
+console.log("অ্যারের সব সংখ্যার যোগফল: " + totalSum);
